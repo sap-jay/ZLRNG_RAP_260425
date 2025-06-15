@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_SCWM_HUHDR'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_SCWM_HUHDR'
+  }
+}
+define service ZUI_SCWM_HUHDR_O4 provider contracts odata_v4_ui {
+  expose ZC_SCWM_HUHDR as huhdr;
+}

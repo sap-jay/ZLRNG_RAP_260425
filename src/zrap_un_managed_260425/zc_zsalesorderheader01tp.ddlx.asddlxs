@@ -1,0 +1,175 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'ZSalesOrderHeader', 
+    typeNamePlural: 'ZSalesOrderHeaders', 
+    title: {
+      type: #STANDARD, 
+      label: 'ZSalesOrderHeader', 
+      value: 'SalesOrder'
+    }
+  }, 
+  presentationVariant: [ {
+    sortOrder: [ {
+      by: 'SalesOrder', 
+      direction: #DESC
+    } ], 
+    visualizations: [ {
+      type: #AS_LINEITEM
+    } ]
+  } ]
+}
+annotate view ZC_ZSalesOrderHeader01TP with
+{
+  @UI.facet: [ {
+    id: 'idCollection', 
+    type: #COLLECTION, 
+    label: 'ZSalesOrderHeader', 
+    position: 10 
+  }, 
+  {
+    id: 'idIdentification', 
+    parentId: 'idCollection', 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'General Information', 
+    position: 20 
+  }, 
+  {
+    id: 'idZSalesOrderItem', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'ZSalesOrderItem', 
+    position: 30 , 
+    targetElement: '_ZSalesOrderItem'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    importance: #HIGH, 
+    label: 'SalesOrder'
+  } ]
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'SalesOrder'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  SalesOrder;
+  
+  @UI.lineItem: [ {
+    position: 20 , 
+    importance: #HIGH, 
+    label: 'DocType'
+  } ]
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'DocType'
+  } ]
+  DocType;
+  
+  @UI.lineItem: [ {
+    position: 30 , 
+    importance: #HIGH, 
+    label: 'SalesOrg'
+  } ]
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'SalesOrg'
+  } ]
+  SalesOrg;
+  
+  @UI.lineItem: [ {
+    position: 40 , 
+    importance: #HIGH, 
+    label: 'DistrChannel'
+  } ]
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'DistrChannel'
+  } ]
+  DistrChannel;
+  
+  @UI.lineItem: [ {
+    position: 50 , 
+    importance: #HIGH, 
+    label: 'Division'
+  } ]
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'Division'
+  } ]
+  Division;
+  
+  @UI.lineItem: [ {
+    position: 60 , 
+    importance: #HIGH, 
+    label: 'SoldToParty'
+  } ]
+  @UI.identification: [ {
+    position: 60 , 
+    label: 'SoldToParty'
+  } ]
+  SoldToParty;
+  
+  @UI.lineItem: [ {
+    position: 70 , 
+    importance: #HIGH, 
+    label: 'CustomerFirstName'
+  } ]
+  @UI.identification: [ {
+    position: 70 , 
+    label: 'CustomerFirstName'
+  } ]
+  CustomerFirstName;
+  
+  @UI.lineItem: [ {
+    position: 80 , 
+    importance: #HIGH, 
+    label: 'CutomerLastName'
+  } ]
+  @UI.identification: [ {
+    position: 80 , 
+    label: 'CutomerLastName'
+  } ]
+  CutomerLastName;
+  
+  @UI.lineItem: [ {
+    position: 90 , 
+    importance: #HIGH, 
+    label: 'OrderDate'
+  } ]
+  @UI.identification: [ {
+    position: 90 , 
+    label: 'OrderDate'
+  } ]
+  OrderDate;
+  
+  @UI.lineItem: [ {
+    position: 100 , 
+    importance: #HIGH
+  } ]
+  @UI.identification: [ {
+    position: 100 
+  } ]
+  CreatedBy;
+  
+  @UI.lineItem: [ {
+    position: 110 , 
+    importance: #HIGH, 
+    label: 'CreatedOn'
+  } ]
+  @UI.identification: [ {
+    position: 110 , 
+    label: 'CreatedOn'
+  } ]
+  CreatedOn;
+  
+  @UI.hidden: true
+  Locallastchanged;
+  
+  @UI.hidden: true
+  Lastchanged;
+  
+  
+  @UI.hidden: true
+  Changedby;
+}

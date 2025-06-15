@@ -1,0 +1,7 @@
+@ObjectModel.leadingEntity.name: 'ZC_ZSalesOrderHeader01TP'
+define service ZUI_ZSalesOrderHeader01 {
+  expose ZC_ZSALESORDERHEADER01TP as ZSalesOrderHeader;
+  expose ZC_ZSALESORDERITEMTP as ZSalesOrderItem;
+  expose I_UNITOFMEASURE as UnitOfMeasure;
+  expose I_CURRENCY as Currency;
+}

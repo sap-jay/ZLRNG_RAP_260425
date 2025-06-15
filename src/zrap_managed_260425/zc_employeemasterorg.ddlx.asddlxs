@@ -1,0 +1,57 @@
+@Metadata.layer: #CORE
+
+
+@UI.headerInfo: {
+    typeName: 'Employe Data & Org',
+    typeNamePlural: 'Employes Data & Orgs',
+    typeImageUrl: 'sap-icon://employee',
+    title: {
+        type: #STANDARD,
+        value: 'Pernr'    },
+    description: {
+        type: #STANDARD,
+        label: 'EmploymentStatus',
+        criticalityRepresentation: #WITHOUT_ICON,
+        value: 'EmploymentStatus'
+    }
+}
+annotate entity ZC_EmployeeMasterOrg with
+{
+
+  @UI.facet: [{
+      id: 'EmployeGeneralData',
+      purpose: #STANDARD,
+      parentId: '',
+      position: 10,
+      label: 'Employee General Data',
+      type: #IDENTIFICATION_REFERENCE
+  }]
+
+
+  @UI.lineItem: [{ position: 10, label: 'Employee Number'}]
+  @UI.identification: [{ position: 10, label: 'Employee Number' }]
+  @UI.selectionField: [{ position: 10  }]
+  Pernr;
+  @UI.lineItem: [{ position: 20, label: 'Bigin Date'}]
+  @UI.identification: [{ position: 20, label: 'Begin Date' }]
+  @UI.selectionField: [{ position: 20  }]
+  Begda;
+  @UI.lineItem: [{ position: 30, label: 'End Date'}]
+  @UI.identification: [{ position: 30, label: 'End Date' }]
+  Endaa;
+  @UI.lineItem: [{ position: 40, label: 'Action Type'}]
+  @UI.identification: [{ position: 40, label: 'Action Type' }]
+  ActionType;
+  @UI.lineItem: [{ position: 50, label: 'Status'}]
+  @UI.identification: [{ position: 50, label: 'Employment Status' }]
+  EmploymentStatus;
+  @UI.identification: [{ position: 60, label: 'Local Last Changed' }]
+  Locallastchanged;
+  @UI.identification: [{ position: 70, label: 'Last Changed' }]
+  Lastchanged;
+  @UI.identification: [{ position: 80, label: 'Created By' }]
+  Createdby;
+  @UI.identification: [{ position: 90, label: 'Changed By' }]
+  Changedby;
+
+}

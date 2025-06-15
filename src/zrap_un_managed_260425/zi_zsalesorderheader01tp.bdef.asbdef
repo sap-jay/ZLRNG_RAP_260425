@@ -1,0 +1,30 @@
+interface;
+use draft;
+define behavior for ZI_ZSalesOrderHeader01TP alias ZSalesOrderHeader
+use etag
+
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use association _ZSalesOrderItem { create; with draft; }
+
+}
+
+define behavior for ZI_ZSalesOrderItemTP alias ZSalesOrderItem
+use etag
+
+{
+  use update;
+  use delete;
+
+  use association _ZSalesOrderHeader { with draft; }
+
+}

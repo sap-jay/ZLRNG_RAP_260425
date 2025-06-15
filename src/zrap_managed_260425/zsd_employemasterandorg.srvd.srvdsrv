@@ -1,0 +1,7 @@
+@EndUserText.label: 'Employe Master & Org Data'
+define service ZSD_EmployeMasterAndOrg {
+  expose ZC_EmployeeMasterOrg;
+  expose ZI_EmployeePersonalData;
+  expose ZI_OrgAssignment;
+  expose ZI_OrgManagementData;
+}

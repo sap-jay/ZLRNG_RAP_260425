@@ -1,0 +1,21 @@
+managed implementation in class zbp_i_employeemasteractstat unique;
+strict ( 2 );
+
+define behavior for ZI_EmployeeMasterActStat //alias <alias_name>
+persistent table zpa0000
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly : update ) Pernr;
+
+  mapping for zpa0000
+    {
+      Pernr = pernr;
+      ActionType       = action_type;
+      EmploymentStatus = employment_status;
+    }
+}

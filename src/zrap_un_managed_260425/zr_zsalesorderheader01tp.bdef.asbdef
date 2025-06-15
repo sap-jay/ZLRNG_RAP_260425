@@ -1,0 +1,88 @@
+unmanaged implementation in class ZBP_R_ZSalesOrderHeader01TP unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_ZSalesOrderHeader01TP alias ZSalesOrderHeader
+implementation in class ZBP_R_ZSalesOrderHeader01TP unique
+draft table ZZSALESORDERH00D
+etag master Locallastchanged
+lock master total etag Lastchanged
+authorization master( global )
+
+{
+  field ( readonly )
+   SalesOrder,
+   Locallastchanged,
+   Lastchanged,
+   Createdby,
+   Changedby;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for YVBAK control ZSZSalesOrderHeader01_X
+  {
+    SalesOrder = SALES_ORDER;
+    DocType = DOC_TYPE;
+    SalesOrg = SALES_ORG;
+    DistrChannel = DISTR_CHANNEL;
+    Division = DIVISION;
+    SoldToParty = SOLD_TO_PARTY;
+    CustomerFirstName = CUSTOMER_FIRST_NAME;
+    CutomerLastName = CUTOMER_LAST_NAME;
+    OrderDate = ORDER_DATE;
+    CreatedOn = CREATED_ON;
+    Locallastchanged = LOCALLASTCHANGED;
+    Lastchanged = LASTCHANGED;
+    Createdby = CREATEDBY;
+    Changedby = CHANGEDBY;
+  }
+
+  association _ZSalesOrderItem { create; with draft; }
+
+}
+
+define behavior for ZR_ZSalesOrderItemTP alias ZSalesOrderItem
+implementation in class ZBP_R_ZSalesOrderItemTP unique
+draft table ZZSALESORDERI00D
+etag master Locallastchanged
+lock dependent by _ZSalesOrderHeader
+authorization dependent by _ZSalesOrderHeader
+
+{
+  field ( readonly )
+   SalesOrder,
+   ItemNo,
+   Locallastchanged;
+
+
+  update;
+  delete;
+
+  mapping for YVBAP control ZSZSalesOrderItem_X
+  {
+    SalesOrder = SALES_ORDER;
+    ItemNo = ITEM_NO;
+    MaterialID = MATERIAL_ID;
+    Quantity = QUANTITY;
+    Unit = UNIT;
+    NetPrice = NET_PRICE;
+    Currency = CURRENCY;
+    DeliveryDate = DELIVERY_DATE;
+    ItemCategory = ITEM_CATEGORY;
+    Locallastchanged = LOCALLASTCHANGED;
+    Lastchanged = LASTCHANGED;
+    Createdby = CREATEDBY;
+    Changedby = CHANGEDBY;
+  }
+
+  association _ZSalesOrderHeader { with draft; }
+
+}

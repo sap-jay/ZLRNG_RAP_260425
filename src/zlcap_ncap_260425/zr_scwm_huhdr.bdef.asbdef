@@ -1,0 +1,41 @@
+managed implementation in class ZBP_R_SCWM_HUHDR unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_SCWM_HUHDR alias huhdr
+persistent table ZSCWM_HUHDR
+draft table ZSCWM_HUHDR_D
+etag master Locallastchanged
+lock master total etag Lastchanged
+authorization master( global )
+
+{
+  field ( readonly, numbering : managed )
+   GuidHu;
+
+  field ( readonly )
+   Locallastchanged,
+   Lastchanged,
+   Createdby,
+   Changedby;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZSCWM_HUHDR
+  {
+    GuidHu = guid_hu;
+    PmatGuid = pmat_guid;
+    Locallastchanged = locallastchanged;
+    Lastchanged = lastchanged;
+    Createdby = createdby;
+    Changedby = changedby;
+  }
+}
